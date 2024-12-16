@@ -16,6 +16,17 @@ async def location_handler(message: types.Message):
     longitude = message.location.longitude  # Longitude
     await message.answer(f"Sizning joylashuvingiz:\nLatitude: {latitude}\nLongitude: {longitude}")
 
+@dp.message(Command("start"))
+async def buttons(message:types.Message):
+    menu = types.ReplyKeyboardMarkup(
+        keyboard = [
+            [KeyboardButton(text="asosiy menyu"), KeyboardButton(text="Chiqish"),KeyboardButton(text="asosiy menyu"), KeyboardButton(text="Chiqish")],
+            [KeyboardButton(text="Karzinka"), KeyboardButton(text="Bog'lanish")],
+            [KeyboardButton(text="asosiy menyu"), KeyboardButton(text="Chiqish")],
+            [KeyboardButton(text="Karzinka"), KeyboardButton(text="Bog'lanish")]
+        ]
+
+    )
 
 
 async def main():
