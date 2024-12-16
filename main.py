@@ -9,6 +9,12 @@ dp = Dispatcher()
 @dp.message(Command("start"))
 async def cmd_start(message:types.Message):
     await message.answer("Kirill lotin botga hush kelibsiz")
+    
+@dp.message(ContentType.LOCATION)
+async def location_handler(message: types.Message):
+    latitude = message.location.latitude  # Latitude
+    longitude = message.location.longitude  # Longitude
+    await message.answer(f"Sizning joylashuvingiz:\nLatitude: {latitude}\nLongitude: {longitude}")
 
 
 
